@@ -7,7 +7,13 @@ const login = (req, res) => {
   if (!username || !password) {
     throw new CustomAPIError('Please provide email and password', 400);
   }
-  res.send('login');
+
+  const luckyNumber = Math.floor(Math.random() * 100);
+
+  res.send(200).json({
+    msg: `hello ${username}!`,
+    secret: `Here is your authorized data, your lucky number is ${luckyNumber}`,
+  });
 };
 
 const dashboard = (req, res) => {
